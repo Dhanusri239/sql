@@ -1,0 +1,8 @@
+SELECT
+CASE Country
+    WHEN 'USA' THEN  'US'
+    WHEN 'GERMANY' THEN 'DE'
+    WHEN 'INDIA' THEN 'IN'
+    ELSE 'OTHERS'
+END
+FROM Sales.Customer;
