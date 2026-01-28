@@ -1,0 +1,5 @@
+SELECT
+player_id,
+MIN(GAME_DATE) AS FIRST_GAME_DATE,
+FROM Gameplay
+GROUP BY player_id;
