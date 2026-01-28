@@ -1,0 +1,7 @@
+SELECT
+OrderID,
+OrderDate,
+Sales,
+OrderStatus,
+SUM(Sales) OVER(PARTITION BY OrderStatus ORDER BY Sales DESC ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) Totalsales
+FROM Sales.Orders
