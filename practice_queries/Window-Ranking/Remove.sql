@@ -1,0 +1,6 @@
+SELECT*
+FROM(
+SELECT
+ROW_NUMBER() OVER(PARTITION BY ProductID ORDER BY OrderID) rn,*
+FROM Sales.OrdersArchive)t
+WHERE rn=1;
