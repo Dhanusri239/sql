@@ -1,0 +1,10 @@
+SELECT
+OrderID,
+ProductID,
+Sales,
+FIRST_VALUE(Sales) OVER(PARTITION BY ProductID ORDER BY Sales) LowestSale,
+FIRST_VALUE(Sales) OVER(PARTITION BY ProductId ORDER BY Sales DESC) HighestSaleByFirstValue,
+LAST_VALUE(Sales) OVER(PARTITION BY ProductID ORDER BY Sales ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) HighestSaleByLastValue,
+MIN(Sales) OVER(PARTITION BY ProductID) Minval,
+MAX(Sales) OVER(PARTITION BY ProductID) Maxval
+FROM Sales.Orders
