@@ -1,0 +1,10 @@
+WITH Series AS
+(SELECT
+1 AS Mynum
+UNION ALL
+SELECT
+Mynum+1
+FROM Series
+WHERE Mynum<20)
+SELECT*
+FROM Series
