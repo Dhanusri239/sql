@@ -1,0 +1,12 @@
+CREATE VIEW V_MONTHLY_SUMMARY AS(
+SELECT
+DATETRUNC(MONTH,OrderDate) AS orderMonth,
+SUM(Sales) RunningSales,
+COUNT(OrderDate) TotalOrders,
+SUM(Quantity) TotalQuantity
+FROM Sales.Orders
+GROUP BY DATETRUNC(MONTH,OrderDate)
+)
+SELECT
+*
+FROM V_MONTHLY_SUMMARY
